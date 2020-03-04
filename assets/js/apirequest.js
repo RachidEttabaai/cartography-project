@@ -2,9 +2,9 @@
  * @description Get open datas from a remote API
  * @param {api url} url 
  */
-export function getApiDatas(url){ 
+export function getApiDatas(){ 
   let datapi = []
-  fetch(url).then(response => 
+  fetch("https://data.metromobilite.fr/api/findType/json?types=arret").then(response => 
     response.json().then(data => ({
         data: data,
         status: response.status
@@ -15,13 +15,12 @@ export function getApiDatas(url){
     datasresults.forEach(element => {
 
       if(element.properties.CODE.slice(0,7) === "SEM_GEN"){
-        let mapdatas = new Map()
-        mapdatas.set("id",element.properties.id)
-        mapdatas.set("code",element.properties.CODE)
-        mapdatas.set("libelle",element.properties.LIBELLE)
-        mapdatas.set("commune",element.properties.COMMUNE)
-        mapdatas.set("longitude",element.geometry.coordinates[0])
-        mapdatas.set("latitude",element.geometry.coordinates[1])
+        let mapdatas = []
+        mapdatas["id"] = element.properties.id
+        mapdatas["code"] = element.properties.CODE
+        mapdatas["libelle"] = element.properties.LIBELLE
+        mapdatas["commune"] = element.properties.COMMUNE
+        mapdatas["coordinate"] = [element.geometry.coordinates[1],element.geometry.coordinates[0]]
         datapi.push(mapdatas)
       }
 
