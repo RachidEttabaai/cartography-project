@@ -105,7 +105,7 @@ eval("var api = __webpack_require__(/*! ../../node_modules/style-loader/dist/run
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getApiDatas\", function() { return getApiDatas; });\n/**\n * @description Get open datas from a remote API\n * @param {api url} url \n */\nfunction getApiDatas(url){ \n  let datapi = []\n  fetch(url).then(response => \n    response.json().then(data => ({\n        data: data,\n        status: response.status\n    })\n  ).then(res => {\n\n    let datasresults = res.data.features\n    datasresults.forEach(element => {\n\n      if(element.properties.CODE.slice(0,7) === \"SEM_GEN\"){\n        let mapdatas = new Map()\n        mapdatas.set(\"id\",element.properties.id)\n        mapdatas.set(\"code\",element.properties.CODE)\n        mapdatas.set(\"libelle\",element.properties.LIBELLE)\n        mapdatas.set(\"commune\",element.properties.COMMUNE)\n        mapdatas.set(\"longitude\",element.geometry.coordinates[0])\n        mapdatas.set(\"latitude\",element.geometry.coordinates[1])\n        datapi.push(mapdatas)\n      }\n\n    })\n\n  })).catch(err => {\n    console.error(err)\n  })\n  return datapi\n}\n\n\n//# sourceURL=webpack:///./assets/js/apirequest.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getApiDatas\", function() { return getApiDatas; });\n/**\n * @description Get open datas from a remote API\n * @param {api url} url \n */\nfunction getApiDatas(){ \n  let datapi = []\n  fetch(\"https://data.metromobilite.fr/api/findType/json?types=arret\").then(response => \n    response.json().then(data => ({\n        data: data,\n        status: response.status\n    })\n  ).then(res => {\n\n    let datasresults = res.data.features\n    datasresults.forEach(element => {\n\n      if(element.properties.CODE.slice(0,7) === \"SEM_GEN\"){\n        let mapdatas = []\n        mapdatas[\"id\"] = element.properties.id\n        mapdatas[\"code\"] = element.properties.CODE\n        mapdatas[\"libelle\"] = element.properties.LIBELLE\n        mapdatas[\"commune\"] = element.properties.COMMUNE\n        mapdatas[\"coordinate\"] = [element.geometry.coordinates[1],element.geometry.coordinates[0]]\n        datapi.push(mapdatas)\n      }\n\n    })\n\n  })).catch(err => {\n    console.error(err)\n  })\n  return datapi\n}\n\n\n//# sourceURL=webpack:///./assets/js/apirequest.js?");
 
 /***/ }),
 
@@ -117,19 +117,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/style.css */ \"./assets/css/style.css\");\n/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_style_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _showrequest__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./showrequest */ \"./assets/js/showrequest.js\");\n//CSS Files importations\n\n\n//JS Files importations\n\n\n\n//# sourceURL=webpack:///./assets/js/app.js?");
-
-/***/ }),
-
-/***/ "./assets/js/showrequest.js":
-/*!**********************************!*\
-  !*** ./assets/js/showrequest.js ***!
-  \**********************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _apirequest__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./apirequest */ \"./assets/js/apirequest.js\");\n\n\nlet resrequest = Object(_apirequest__WEBPACK_IMPORTED_MODULE_0__[\"getApiDatas\"])(\"https://data.metromobilite.fr/api/findType/json?types=arret\")\n\nconsole.log(resrequest)\n\n\n//# sourceURL=webpack:///./assets/js/showrequest.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/style.css */ \"./assets/css/style.css\");\n/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_style_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _apirequest__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./apirequest */ \"./assets/js/apirequest.js\");\n//CSS Files importations\n\n\n//JS Files importations\n\n\nlet resrequest = Object(_apirequest__WEBPACK_IMPORTED_MODULE_1__[\"getApiDatas\"])()\n\n\n\n//# sourceURL=webpack:///./assets/js/app.js?");
 
 /***/ }),
 

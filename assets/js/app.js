@@ -2,4 +2,7 @@
 import "../css/style.css"
 
 //JS Files importations
-import "./showrequest"
+import {getApiDatas} from "./apirequest"
+
+let resrequest = getApiDatas()
+
