@@ -14,8 +14,7 @@ let tileLayer = "https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
 //Copyright and License OpenStreetMap
 let attribution = "données © <a href='//osm.org/copyright'>OpenStreetMap</a>/ODbL - rendu <a href='//openstreetmap.fr'>OSM France</a>"
 
-//Map zoom settings
-
+//Adding tilelayer to the map
 L.tileLayer(tileLayer,{
     attribution : attribution,
     minNativeZoom : 1,

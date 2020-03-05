@@ -1,5 +1,6 @@
 import {getApiDatas} from "./apirequest"
 
+
 let resrequest = getApiDatas()
 
 //console.log(resrequest)
@@ -18,4 +19,3 @@ let searchinput = document.getElementById("search")
 searchinput.addEventListener("input",function () { 
     console.log(stoptable.sort())
  })
-
