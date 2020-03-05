@@ -14,15 +14,25 @@ let config = {
         filename: filebundle
     },
     module:{
-        rules:[
+        rules: [
             {
-                test:/\.css$/,
-                use:[
-                    "style-loader",
-                    "css-loader"
-                ]
+              test: /\.css/,
+              use: [{
+                loader: 'style-loader',
+              }, {
+                loader: 'css-loader',
+                options: {
+                  url: false
+                }
+              }]
+            },
+            {
+              test: /\.png/,
+              use: [{
+                loader: 'url-loader',
+              }]
             }
-        ]
+          ]
     }
 }
 

@@ -2,7 +2,11 @@
 import "../css/style.css"
 
 //JS Files importations
-import {getApiDatas} from "./apirequest"
+import "./autocompletion"
+import "./initmap"
 
-let resrequest = getApiDatas()
+
+
+
+
 
