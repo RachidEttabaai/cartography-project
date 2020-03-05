@@ -1,8 +1,12 @@
 //CSS Files importations
 import "../css/style.css"
+import {addNameWebStorage} from "./webStorage"
 
-//JS Files importations
-import {getApiDatas} from "./apirequest"
+let localStorageAllName = localStorage.getItem('allName');
 
-let resrequest = getApiDatas()
+if (!localStorageAllName) {
+    addNameWebStorage();
+}
 
+// console.log(localStorageAllName.split(","));
+// console.log(localStorage);

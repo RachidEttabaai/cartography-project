@@ -1,33 +1,19 @@
 /**
- * @description Get open datas from a remote API
- * @param {api url} url 
+ * @description return data api
+ * @returns {Promise<any>}
  */
-export function getApiDatas(){ 
-  let datapi = []
-  fetch("https://data.metromobilite.fr/api/findType/json?types=arret").then(response => 
-    response.json().then(data => ({
-        data: data,
-        status: response.status
-    })
-  ).then(res => {
+export function getData() {
+  return fetch('https://data.metromobilite.fr/api/findType/json?types=arret')
+      .then(
+          function(response) {
+            if (response.status !== 200) {
+              console.log('Looks like there was a problem. Status Code: ' +
+                  response.status);
+            }
 
-    let datasresults = res.data.features
-    datasresults.forEach(element => {
-
-      if(element.properties.CODE.slice(0,7) === "SEM_GEN"){
-        let mapdatas = []
-        mapdatas["id"] = element.properties.id
-        mapdatas["code"] = element.properties.CODE
-        mapdatas["libelle"] = element.properties.LIBELLE
-        mapdatas["commune"] = element.properties.COMMUNE
-        mapdatas["coordinate"] = [element.geometry.coordinates[1],element.geometry.coordinates[0]]
-        datapi.push(mapdatas)
-      }
-
-    })
-
-  })).catch(err => {
-    console.error(err)
-  })
-  return datapi
+            return response.json()
+          })
+      .catch(function(err) {
+        console.log('Fetch Error :-S', err);
+      });
 }
