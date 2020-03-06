@@ -1,10 +1,7 @@
-/*Importation of CSS file of the framework Foundation*/
 @import "~foundation-sites/dist/css/foundation.css";
-
-/*Importation of CSS file of the JS library Leaflet for the map*/
-@import "~leaflet/dist/leaflet.css";
+/*@import "~leaflet/dist/leaflet.css";*/
 
 #map{
-    height: 400px ;
-    width: 400px;
+    width: 100%;
+    min-height: 100vh;
 }

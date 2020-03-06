@@ -21,7 +21,6 @@
   "homepage": "https://gitlab.com/bryan_garenne/cartography-project#readme",
   "dependencies": {
     "css-loader": "^3.4.2",
-    "file-loader": "^5.1.0",
     "foundation-sites": "^6.6.1",
     "jquery": "^3.4.1",
     "leaflet": "^1.6.0",
@@ -32,5 +31,8 @@
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11",
     "what-input": "^5.2.7"
+  },
+  "devDependencies": {
+    "file-loader": "^5.1.0"
   }
 }

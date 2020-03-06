@@ -17,3 +17,11 @@ export function getData() {
         console.log('Fetch Error :-S', err);
       });
 }
+
+/**
+ * @description
+ * @param nameStop
+ */
+export function getDataStop(nameStop) {
+    // Récupérer données d'un arret
+}
