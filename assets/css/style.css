@@ -1,7 +1,17 @@
 @import "~foundation-sites/dist/css/foundation.css";
-/*@import "~leaflet/dist/leaflet.css";*/
+@media screen and (max-width: 39.9375em) {
+    .menu {
+        background-color: #065070;
 
-#map{
+        position: absolute;
+        z-index: 401;
+        width: 100%;
+        min-height: 100vh;
+    }
+}
+
+
+#map {
     width: 100%;
     min-height: 100vh;
 }
