@@ -4,14 +4,13 @@
  */
 export function getData() {
   return fetch('https://data.metromobilite.fr/api/findType/json?types=arret')
-      .then(
-          function(response) {
+      .then(function(response) {
             if (response.status !== 200) {
               console.log('Looks like there was a problem. Status Code: ' +
                   response.status);
             }
 
-            return response.json()
+            return response.json();
           })
       .catch(function(err) {
         console.log('Fetch Error :-S', err);
@@ -23,5 +22,16 @@ export function getData() {
  * @param nameStop
  */
 export function getDataStop(nameStop) {
-    // Récupérer données d'un arret
+    
+  let urlsearchdataonestop = "https://data.metromobilite.fr/api/findType/json?types=arret&query="+nameStop;
+  return fetch(urlsearchdataonestop).then(function(response) {
+             if(response.status !== 200){
+              console.log('Looks like there was a problem. Status Code: ' +
+                  response.status);
+             }
+
+             return response.json();
+           }).catch(function(err) {
+            console.log('Fetch Error :-S', err);
+          });
 }
