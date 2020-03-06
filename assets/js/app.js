@@ -12,9 +12,9 @@ if (!localStorageAllName) {
     addNameWebStorage();
 }
 
-addOneNameWebStorage("CHAVANT");
+// addOneNameWebStorage("CHAVANT");
 
-console.log(localStorage.getItem('oneName'));
+// console.log(localStorage.getItem('oneName'));
 
 // let map = initMap();
 // showMarker(map, 45.188529, 5.724524, 'Chavant');
