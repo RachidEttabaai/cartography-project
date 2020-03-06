@@ -2,7 +2,7 @@
 import "../css/style.css"
 import {addNameWebStorage} from "./webStorage"
 import $ from "jquery";
-require("foundation-sites");
+import "foundation-sites/js/foundation";
 
 let localStorageAllName = localStorage.getItem('allName');
 
