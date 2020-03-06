@@ -1,10 +1,9 @@
 //CSS Files importations
 import "../css/style.css";
 import {initMap, showMarker} from "./initialization";
-import $ from "jquery";
 import "foundation-sites/js/foundation";
 import img from '../image/marker_black.png';
-import {addNameWebStorage,addOneNameWebStorage} from "./webStorage";
+import {getOneName,addNameWebStorage,addOneNameWebStorage} from "./webStorage";
 
 let localStorageAllName = localStorage.getItem('allName');
 
@@ -12,12 +11,16 @@ if (!localStorageAllName) {
     addNameWebStorage();
 }
 
-addOneNameWebStorage("CHAVANT");
+// let localStorageOneName = localStorage.getItem("CHAVANT");
 
-console.log(localStorage.getItem('oneName'));
+// if(!localStorageOneName){
+//     addOneNameWebStorage("CHAVANT");
+// }
+
+// let arrOneName = localStorage.getItem('CHAVANT').split(",");
 
 // let map = initMap();
-// showMarker(map, 45.188529, 5.724524, 'Chavant');
+// showMarker(map, arrOneName[2], arrOneName[3], arrOneName[1]);
 
 // console.log(localStorageAllName.split(","));
 // console.log(localStorage);

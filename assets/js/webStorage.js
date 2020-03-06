@@ -21,7 +21,7 @@ async function getAllName() {
  * @description get data for one stop
  * @returns {Array}
  */
-async function getOneName(name){
+export async function getOneName(name){
     let dataonename = await getDataStop(name);
     let oneName = [];
 
@@ -59,5 +59,5 @@ export async function addNameWebStorage() {
 export async function addOneNameWebStorage(name){
     let oneName = await getOneName(name);
     localStorage.clear();
-    localStorage.setItem('oneName', oneName);
+    localStorage.setItem(name, oneName);
 }
