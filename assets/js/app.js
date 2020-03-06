@@ -1,16 +1,17 @@
 //CSS Files importations
 import "../css/style.css";
-import {addNameWebStorage} from "./webStorage";
-import {initMap, showMarker} from "./initialization";
+import ""
 import $ from "jquery";
 import "foundation-sites/js/foundation";
-import img from '../image/marker_black.png';
+
+import {addNameWebStorage} from "./webStorage";
+import {initMap, showMarker} from "./initialization";
+
+// import logo from '../image/logo.png';
+
 
 let localStorageAllName = localStorage.getItem('allName');
-
-if (!localStorageAllName) {
-    addNameWebStorage();
-}
+if (!localStorageAllName) {addNameWebStorage();}
 
 let map = initMap();
 showMarker(map, 45.188529, 5.724524, 'Chavant');

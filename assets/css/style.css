@@ -1,15 +1,12 @@
 @import "~foundation-sites/dist/css/foundation.css";
-@media screen and (max-width: 39.9375em) {
-    .menu {
-        background-color: #065070;
 
-        position: absolute;
-        z-index: 401;
-        width: 100%;
-        min-height: 100vh;
-    }
+.menu {
+    background-color: #065070;
+    position: absolute;
+    z-index: 1001;
+    width: 100%;
+    min-height: 100vh;
 }
-
 
 #map {
     width: 100%;
