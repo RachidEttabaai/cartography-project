@@ -1,0 +1,73 @@
+@import "~foundation-sites/dist/css/foundation.css";
+$color-client-bleu: #065070;
+// Smartphone en mode portrait
+@media only screen and (max-width: 557px) and (orientation: portrait) {
+  .menu-app {
+    max-width: 100%;
+  }
+}
+
+// Tablette e PC
+@media only screen and (min-width: 558px) {
+  .menu-app {
+    max-width: 557px;
+  }
+}
+
+.burger-icon-container {
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  z-index: 401;
+  width: 70px;
+}
+
+.menu-app {
+  background-color: $color-client-bleu;
+  position: absolute;
+  z-index: 1001;
+  min-height: 100vh;
+  padding-top: 20px;
+
+  .button-close-container {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 70px;
+  }
+
+  .logo-container {
+    width: 55%;
+    height: 1%;
+    margin: auto;
+  }
+
+  form {
+    label {
+      color: white;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    input {
+      width: 80%;
+      height: 30px;
+      margin: auto;
+
+      border-radius: 10px;
+
+      font-size: 1rem;
+    }
+
+    .button {
+      display: block;
+      margin: 20px auto auto;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+  }
+}
+
+#map {
+  width: 100%;
+  min-height: 100vh;
+}
