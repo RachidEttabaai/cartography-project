@@ -21,7 +21,7 @@ async function getAllName() {
  * @description get data for one stop
  * @returns {Array}
  */
-export async function setStorageStop(name){
+export async function addCurrentStopLocalStorage(name){
     let dataOneName = await getDataStop(name);
     let dataStop = [];
 

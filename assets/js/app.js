@@ -2,7 +2,7 @@
 import "../css/style.css";
 import {initMap, showMarker} from "./initialization";
 import "foundation-sites/js/foundation";
-import {setStorageStop, addNameLocalStorage} from "./webStorage";
+import {addCurrentStopLocalStorage, addNameLocalStorage} from "./webStorage";
 
 let localStorageAllName = localStorage.getItem('allName');
 
