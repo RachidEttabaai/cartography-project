@@ -1,10 +1,10 @@
-const webpack = require("webpack")
-const path = require("path")
+const webpack = require("webpack");
+const path = require("path");
 
-let entry = "./assets/js/app.js"
-let filebundle = "./bundle.js"
-let folderpublic = "./public"
-let mode = "development"
+let entry = "./assets/js/app.js";
+let filebundle = "./bundle.js";
+let folderpublic = "./public";
+let mode = "development";
 
 let config = {
     mode: mode,
@@ -16,21 +16,24 @@ let config = {
     module:{
         rules: [
             {
-              test: /\.css/,
-              use: [{
-                loader: 'style-loader',
-              }, {
-                loader: 'css-loader',
-                options: {
-                  url: false
-                }
-              }]
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             },
             {
-              test: /\.png/,
-              use: [{
-                loader: 'url-loader',
-              }]
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
+            },
+            {
+                test: /\.(png|jpg|gif)$/i,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
+                            name: '[name].[hash:7].[ext]'
+                        },
+                    },
+                ],
             },
             {
                 test: /\.(png|jpe?g|gif)$/i,
@@ -39,23 +42,9 @@ let config = {
                         loader: 'file-loader',
                     },
                 ],
-            },
-
-            {
-              test:/\.s[ac]ss$/i,
-              use: [
-                'style-loader',
-                'css-loader',
-                {
-                  loader: 'sass-loader',
-                  options: {
-                    implementation: require('sass'),
-                  },
-                },
-              ]
             }
           ]
     }
-}
+};
 
-module.exports = config
+module.exports = config;

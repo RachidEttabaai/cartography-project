@@ -1,23 +1,26 @@
-//CSS Files importations
-import "../css/style.css";
-import {initMap, showMarker} from "./initialization";
-import $ from "jquery";
+import "../scss/style.scss";
 import "foundation-sites/js/foundation";
-import img from '../image/marker_black.png';
-import {addNameWebStorage,addOneNameWebStorage} from "./webStorage";
+import "./autoComplete";
+import {initMap, showMarker} from "./initialization";
+import {addCurrentStopLocalStorage, addNameLocalStorage} from "./webStorage";
 
+let map = initMap();
 let localStorageAllName = localStorage.getItem('allName');
 
-if (!localStorageAllName) {
-    addNameWebStorage();
-}
-
-// addOneNameWebStorage("CHAVANT");
-
-// console.log(localStorage.getItem('oneName'));
-
-// let map = initMap();
-// showMarker(map, 45.188529, 5.724524, 'Chavant');
+if (!localStorageAllName) {addNameLocalStorage();}
 
 // console.log(localStorageAllName.split(","));
 // console.log(localStorage);
+
+////////////////////////////////////////////////////////////////////////////////////////// SHOW MENU
+const menu = document.querySelector('div.menu-app');
+const buttonClose = document.querySelector('.button-close-container');
+const buttonOpen = document.querySelector('.burger-icon-container');
+
+buttonClose.addEventListener('click', event => {
+    menu.style.display = "none";
+});
+
+buttonOpen.addEventListener('click', event => {
+    menu.style.display = "block";
+});

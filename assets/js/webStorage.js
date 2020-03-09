@@ -21,32 +21,28 @@ async function getAllName() {
  * @description get data for one stop
  * @returns {Array}
  */
-async function getOneName(name){
-    let dataonename = await getDataStop(name);
-    let oneName = [];
+export async function addCurrentStopLocalStorage(name){
+    let dataOneName = await getDataStop(name);
+    let dataStop = [];
 
-    for (let feat of dataonename.features) {
+    for (let feat of dataOneName.features) {
         if(feat.properties.CODE.startsWith("SEM")){
-            let id = feat.properties.id;
             let name = feat.properties.LIBELLE;
             let latitude = feat.geometry.coordinates[1];
             let longitude = feat.geometry.coordinates[0];
-            oneName.push(id);
-            oneName.push(name);
-            oneName.push(latitude);
-            oneName.push(longitude);
+            dataStop.push(name);
+            dataStop.push(latitude);
+            dataStop.push(longitude);
         }
     }
-
-    return oneName;
-
+    localStorage.setItem("currentMarker", dataStop);
 }
 
 /**
  * @description add all names stop to web storage
  * 
  */
-export async function addNameWebStorage() {
+export async function addNameLocalStorage() {
     let allName = await getAllName();
     localStorage.clear();
     localStorage.setItem('allName', allName);
@@ -59,5 +55,5 @@ export async function addNameWebStorage() {
 export async function addOneNameWebStorage(name){
     let oneName = await getOneName(name);
     localStorage.clear();
-    localStorage.setItem('oneName', oneName);
+    localStorage.setItem(name, oneName);
 }
