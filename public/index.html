@@ -2,12 +2,32 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Projet Cartographie</title>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
     </head>
     <body>
+        <div class="container">
+            <div class="burger-icon-container">
+                <img src="../assets/image/burger_black.png" alt="burger icon" class="burger-icon">
+            </div>
 
-        <div id="map"></div>
+            <div class="menu-app">
+                <div class="button-close-container">
+                    <img src="../assets/image/close.png" alt="burger icon" class="burger-icon">
+                </div>
+                <div class="logo-container">
+                    <img class="logo" src="../assets/image/logo.png" alt="Logo TAG">
+                </div>
+                <form method="POST" id="search-form">
+                    <label for="stop-search">Choisissez un arrêt</label>
+                    <input list="search-stop-search" type="text" id="stop-search" name="stop-search" autocomplete="off"/>
+                    <datalist id="search-stop-search"></datalist>
+                    <button type="submit" class="button">Recherche</button>
+                </form>
+            </div>
+            <div id="map"></div>
+        </div>
 
         <script src="bundle.js"></script>
     </body>
