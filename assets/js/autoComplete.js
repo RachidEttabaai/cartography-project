@@ -44,13 +44,10 @@ $(document).ready(function () {
         $("#search-stop-search").empty();
     };
 
-    $("#search-form").on("submit", function() {
-        let currentStopName = $("#stop-search").val();
-        console.log(currentStopName);
-        addCurrentStopLocalStorage(currentStopName);
-    });
+    $("#search-form").on("submit", function(e) {
 
-    $( "#search-form button" ).click(function() {
-        console.log("click");
+        e.preventDefault();
+        let currentStopName = $("#stop-search").val();
+        addCurrentStopLocalStorage(currentStopName);
     });
 });

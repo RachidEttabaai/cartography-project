@@ -36,6 +36,7 @@ export async function addCurrentStopLocalStorage(name){
         }
     }
     localStorage.setItem("currentMarker", dataStop);
+    location.reload();
 }
 
 /**
