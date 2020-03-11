@@ -5,26 +5,21 @@ import {initMap, showMarker, showAllMarker} from "./initialization";
 import {addCurrentStopLocalStorage, addNameLocalStorage} from "./webStorage";
 
 let map = initMap();
-// let currentMarker = localStorage.getItem("currentMarker").split(",");
-
-// console.log(currentMarker[2]);
-
-
-
-
-
-// showMarker(map, "currentMarker[1], currentMarker[2], currentMarker[0]");
-// showAllMarker(map);
-// console.log(localStorage.clear());
-console.log(localStorage);
 let localStorageAllName = localStorage.getItem('allName');
+let currentMarker = localStorage.getItem("currentMarker");
 
-// if (!localStorageAllName) {addNameLocalStorage();}
-addNameLocalStorage();
+if (!localStorageAllName) {addNameLocalStorage();}
 
-// console.log(localStorageAllName.split(","));
+if (currentMarker) {
+    let currentStopValues = localStorage.getItem("currentMarker").split(",");
 
-// console.log(localStorage);
+    let nameStop = currentStopValues[0];
+    let lat = currentStopValues[1];
+    let long = currentStopValues[2];
+
+    showMarker(map, lat, long, nameStop);
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////// SHOW MENU CLICK
 const menu = document.querySelector('div.menu-app');
 const buttonClose = document.querySelector('.button-close-container');

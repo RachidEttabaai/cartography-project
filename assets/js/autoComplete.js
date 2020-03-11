@@ -33,6 +33,5 @@ $(document).ready(function () {
 $("#search-form").on("submit", function (e) {
     e.preventDefault();
     addCurrentStopLocalStorage($("#stop-search").val());
-    document.location.reload(true);
 });
 
