@@ -6,7 +6,7 @@ import "leaflet";
  * @description initalization map
  */
 export function initMap() {
-    let map = L.map('map').setView([45.188529, 5.724524], 14);
+    let map = L.map('map').setView([45.188529, 5.724524], 11);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19

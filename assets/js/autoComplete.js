@@ -1,4 +1,5 @@
 import $ from "jquery";
+import {addCurrentStopLocalStorage} from "./webStorage";
 
 let stopListTab = localStorage.getItem("allName").split(",");
 
@@ -27,7 +28,11 @@ $(document).ready(function () {
         });
     });
 
-    $("#search-form").on("submit", function () {
-        alert($("#stop-search").val());
-    });
 });
+
+$("#search-form").on("submit", function (e) {
+    e.preventDefault();
+    addCurrentStopLocalStorage($("#stop-search").val());
+    document.location.reload(true);
+});
+
