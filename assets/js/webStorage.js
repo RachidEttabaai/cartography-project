@@ -36,7 +36,6 @@ export async function addCurrentStopLocalStorage(name){
         }
     }
     localStorage.setItem("currentMarker", dataStop);
-    document.location.reload(true);
 }
 
 /**
@@ -47,14 +46,4 @@ export async function addNameLocalStorage() {
     let allName = await getAllName();
     localStorage.clear();
     localStorage.setItem('allName', allName);
-}
-
-/**
- * @description add datas for one stop to web storage
- * 
- */
-export async function addOneNameWebStorage(name){
-    let oneName = await getOneName(name);
-    localStorage.clear();
-    localStorage.setItem(name, oneName);
 }

@@ -53,7 +53,7 @@ $color-client-bleu: #065070;
       height: 30px;
       margin: auto;
 
-      border-radius: 10px 10px 0px 0px;
+      border-radius: 10px 10px 0 0;
       
       font-size: 1rem;
     }
@@ -81,7 +81,7 @@ $color-client-bleu: #065070;
 }
 
 #search-stop-search li:last-child{
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 0 0 10px 10px;
 }
 
 #search-stop-search li:hover{

@@ -1,16 +1,12 @@
 import $ from "jquery";
-import {addNameLocalStorage,addCurrentStopLocalStorage} from "./webStorage";
-
-let stopList = localStorage.getItem("allName");
-
-if (!stopList) {addNameLocalStorage();}
+import {addCurrentStopLocalStorage} from "./webStorage";
 
 let stopListTab = localStorage.getItem("allName").split(",");
-
-//console.log(stopListTab);
+// if (stopListTab) {
+//
+// }
 
 $(document).ready(function () {
-
     $("#stop-search").on("keyup", function (e) {
 
         let valStopSearch = $(this).val();
@@ -39,22 +35,22 @@ $(document).ready(function () {
 
     function getEventTarget(e) {
         e = e || window.event;
-        return e.target || e.srcElement; 
+        return e.target || e.srcElement;
     }
-    
+
     document.getElementById('search-stop-search').onclick = function(event) {
         let target = getEventTarget(event);
-        //alert(target.innerHTML);
         $("#stop-search").val(target.innerHTML);
         $("#search-stop-search").empty();
     };
 
-    $("#search-form").on("submit", function (e) {
-        
-        let stopname = $("#stop-search").val();
-        //alert("Nom d'arrêt recherché :"+stopname);
-        addCurrentStopLocalStorage(stopname);
-        e.stopImmediatePropagation();
-        
+    $("#search-form").on("submit", function() {
+        let currentStopName = $("#stop-search").val();
+        console.log(currentStopName);
+        addCurrentStopLocalStorage(currentStopName);
+    });
+
+    $( "#search-form button" ).click(function() {
+        console.log("click");
     });
 });
