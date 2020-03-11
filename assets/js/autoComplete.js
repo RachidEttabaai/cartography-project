@@ -1,7 +1,10 @@
 import $ from "jquery";
 import {addCurrentStopLocalStorage} from "./webStorage";
+let allName = localStorage.getItem("allName");
+if (allName) {
+    let stopListTab = localStorage.getItem("allName").split(",");
+}
 
-let stopListTab = localStorage.getItem("allName").split(",");
 
 $(document).ready(function () {
     $("#stop-search").on("input", function (e) {
