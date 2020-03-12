@@ -1,4 +1,4 @@
-import {getData,getDataStop} from "./apirequest"
+import {getData,getDataStop,getLinesStop} from "./apirequest"
 
 /**
  * @description get all names stop
@@ -15,6 +15,22 @@ async function getAllName() {
         }
     }
     return allName;
+}
+
+/**
+ * @description get all lines for stop
+ * @returns {Array}
+ */
+export async function getAllLinesForStop(name){
+
+    let datas = await getLinesStop(name);
+    let alldatas = [];
+
+    for(let data of datas){
+        alldatas.push(JSON.stringify(data.pattern));
+    }
+
+    localStorage.setItem("alldatas",alldatas);
 }
 
 /**

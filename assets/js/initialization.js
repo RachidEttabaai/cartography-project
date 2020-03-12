@@ -23,7 +23,7 @@ export function initMap() {
 export async function showAllMarker(map){
     let currentMarker = localStorage.getItem("currentMarker").split(",");
     let allName = localStorage.getItem("allName").split(",");
-    //console.log(allName.length);
+    
     for (let name of allName) {
         let dataOneName = await getDataStop(name);
 

@@ -36,6 +36,21 @@ export function getDataStop(nameStop) {
         });
 }
 
+/**
+ * @description
+ * @param nameStop
+ */
 export function getLinesStop(nameStop){
-    
+    return fetch("https://data.metromobilite.fr/api/routers/default/index/clusters/SEM:GEN"+nameStop+"/stoptimes")
+        .then(function(response) {
+            if (response.status !== 200) {
+                console.log('Looks like there was a problem. Status Code: ' +
+                    response.status);
+            }
+
+            return response.json();
+        })
+        .catch(function(err) {
+            console.log('Fetch Error :-S', err);
+        });
 }

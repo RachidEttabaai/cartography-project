@@ -2,7 +2,7 @@ import "../scss/style.scss";
 import "foundation-sites/js/foundation";
 import "./autoComplete";
 import {initMap, showMarker, showAllMarker} from "./initialization";
-import {addCurrentStopLocalStorage, addNameLocalStorage} from "./webStorage";
+import {addCurrentStopLocalStorage, addNameLocalStorage,getAllLinesForStop} from "./webStorage";
 
 let map = initMap();
 let localStorageAllName = localStorage.getItem('allName');
