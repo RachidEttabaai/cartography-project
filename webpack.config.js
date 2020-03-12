@@ -1,5 +1,6 @@
 const webpack = require("webpack");
 const path = require("path");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 let entry = "./assets/js/app.js";
 let filebundle = "./bundle.js";
@@ -44,6 +45,13 @@ let config = {
                 ],
             }
           ]
+    },
+    optimization: {
+        minimizer: [
+          new UglifyJsPlugin({
+            test: /\.js(\?.*)?$/i,
+          }),
+        ],
     }
 };
 
