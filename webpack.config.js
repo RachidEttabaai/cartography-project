@@ -48,7 +48,7 @@ let config = {
     },
     optimization: {
         minimizer: [
-          new UglifyJsPlugin({test: /\.js(\?.*)?$/i})
+          new UglifyJsPlugin({test: /\.js(\?.*)?$/i,exclude: /\/bundle/})
         ]
     }
 };
