@@ -44,6 +44,7 @@ $(document).ready(function () {
         $("#search-stop-search").empty();
     };
 
+
     $("#search-form").on("submit", function(e) {
 
         e.preventDefault();

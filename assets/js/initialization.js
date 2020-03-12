@@ -21,8 +21,9 @@ export function initMap() {
  * @returns {Promise<void>}
  */
 export async function showAllMarker(map){
+    let currentMarker = localStorage.getItem("currentMarker").split(",");
     let allName = localStorage.getItem("allName").split(",");
-    console.log(allName.length);
+    //console.log(allName.length);
     for (let name of allName) {
         let dataOneName = await getDataStop(name);
 
@@ -32,7 +33,10 @@ export async function showAllMarker(map){
                 let latitude = feat.geometry.coordinates[1];
                 let longitude = feat.geometry.coordinates[0];
 
-                showMarker(map, latitude, longitude, name);
+                if(name != currentMarker[0]){
+                    showMarker(map, latitude, longitude, name);
+                }
+
             }
         }
 

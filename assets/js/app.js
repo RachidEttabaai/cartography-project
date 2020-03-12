@@ -20,8 +20,10 @@ if (currentMarker) {
     showMarker(map, lat, long, nameStop);
 }
 
-// addCurrentStopLocalStorage("CAMPING");
-console.log(localStorage);
+//////////////////////////////////////////////////SHOW ALL STOPS
+//showAllMarker(map);
+
+
 ////////////////////////////////////////////////////////////////////////////////////////// SHOW MENU CLICK
 const menu = document.querySelector('div.menu-app');
 const buttonClose = document.querySelector('.button-close-container');
