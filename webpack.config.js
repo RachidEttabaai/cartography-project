@@ -50,8 +50,17 @@ let config = {
         minimizer: [
           new UglifyJsPlugin({
             test: /\.js(\?.*)?$/i,
-          }),
-        ],
+            chunkFilter: (chunk) => {
+                // Exclude uglification for the `vendor` chunk
+                if (chunk.name === 'vendor') {
+                  return false;
+                }
+      
+                return true;
+            },
+            extractComments: "all",
+          })
+        ]
     }
 };
 
