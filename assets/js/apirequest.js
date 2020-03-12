@@ -35,3 +35,7 @@ export function getDataStop(nameStop) {
             console.log('Fetch Error :-S', err);
         });
 }
+
+export function getLinesStop(nameStop){
+    
+}

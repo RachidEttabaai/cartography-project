@@ -48,29 +48,7 @@ let config = {
     },
     optimization: {
         minimizer: [
-          new UglifyJsPlugin({
-            test: /\.js(\?.*)?$/i,
-            chunkFilter: (chunk) => {
-                // Exclude uglification for the `vendor` chunk
-                if (chunk.name === 'vendor') {
-                  return false;
-                }
-      
-                return true;
-            },
-            extractComments: "all",
-            uglifyOptions: {
-                warnings: false,
-                parse: {},
-                compress: {},
-                mangle: true, // Note `mangle.properties` is `false` by default.
-                output: null,
-                toplevel: false,
-                nameCache: null,
-                ie8: false,
-                keep_fnames: false,
-            }
-          })
+          new UglifyJsPlugin({test: /\.js(\?.*)?$/i})
         ]
     }
 };
