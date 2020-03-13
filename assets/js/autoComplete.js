@@ -1,35 +1,66 @@
 import $ from "jquery";
-import {addCurrentStopLocalStorage} from "./webStorage";
+import {addCurrentStopLocalStorage,addNameLocalStorage} from "./webStorage";
 
 let allNameLocalStorage = localStorage.getItem("allName");
 
-if (allNameLocalStorage) {
-    let stopListTab = localStorage.getItem("allName").split(",");
-    $(document).ready(function () {
-        $("#stop-search").on("keyup", function (e) {
+if (!allNameLocalStorage) {
+    addNameLocalStorage();
+} 
+let stopListTab = localStorage.getItem("allName").split(",");  
+$(document).ready(function () {
 
-            let valStopSearch = $(this).val();
-            let datalist = $("#search-stop-search");
-            let optionlist = [];
+    let listdata = $("#search-stop-search");
+    let datasli = [];
 
-            if(valStopSearch < 1){
-                return false;
+    stopListTab.forEach(stop => {
+            
+        datasli.push(stop);
+            
+    });
+
+    datasli.forEach(li => {
+        let optli = $("<li></li>").attr("data-id",li);
+        let op = optli.html(li);
+        optli.append(op);
+        listdata.append(optli);
+    });
+
+    listdata.hide();
+
+    $("#stop-search").on("keyup", function (e) {
+
+        let valStopSearch = $(this).val();
+        let datalists = $("#search-stop-search li");
+        let listdatas = [];
+        let optionlist = [];
+
+        if(valStopSearch < 1){
+            return false;
+        }
+            
+        for(let i=0;i<datalists.length;i++){
+            listdatas.push(datalists[i].innerHTML);
+        }
+
+        listdatas.forEach(stop => {
+            if(stop.substr(0,valStopSearch.length).toUpperCase() == valStopSearch.toUpperCase()){
+                optionlist.push(stop);
             }
+        });
 
-            datalist.empty();
+        $("#search-stop-search").empty();
 
-            stopListTab.forEach(stop => {
-                if(stop.substr(0,valStopSearch.length).toUpperCase() == valStopSearch.toUpperCase()){
-                    optionlist.push(stop);
-                }
-            });
+        //console.log(optionlist)
 
-            optionlist.forEach(option => {
-                let liopt = $("<li></li>").attr("data-id",option);
-                let opt = liopt.html(option);
-                liopt.append(opt);
-                datalist.append(liopt);
-            });
+        optionlist.forEach(option => {
+            let liopt = $("<li></li>").attr("data-id",option);
+            let opt = liopt.html(option);
+            liopt.append(opt);
+            $("#search-stop-search").append(liopt);
+        });
+
+        $("#search-stop-search").show();
+
         });
 
         function getEventTarget(e) {
@@ -50,6 +81,6 @@ if (allNameLocalStorage) {
             let currentStopName = $("#stop-search").val();
             addCurrentStopLocalStorage(currentStopName);
         });
-    });
-}
+});
+
 
