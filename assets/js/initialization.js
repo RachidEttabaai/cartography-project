@@ -34,8 +34,10 @@ export async function showAllMarker(map){
                 let longitude = feat.geometry.coordinates[0];
 
                 if(name != currentMarker[0]){
+                    //console.log(name)
                     showMarker(map, latitude, longitude, name);
                 }
+
 
             }
         }

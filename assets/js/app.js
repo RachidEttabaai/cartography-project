@@ -21,7 +21,10 @@ if (currentMarker) {
 }
 
 //////////////////////////////////////////////////SHOW ALL STOPS
-//showAllMarker(map);
+document.querySelector("#show-allmarkers").addEventListener("click",function(){
+    showAllMarker(map);
+})
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////// SHOW MENU CLICK
