@@ -2,13 +2,15 @@ import "../scss/style.scss";
 import "foundation-sites/js/foundation";
 import {initMap, showMarker, showAllMarker} from "./initialization";
 import {addCurrentStopLocalStorage, addNameLocalStorage,getAllLinesForStop} from "./webStorage";
-import "./autoComplete";
+import {autocomplete} from "./autoComplete";
 
 let map = initMap();
 let localStorageAllName = localStorage.getItem('allName');
 let currentMarker = localStorage.getItem("currentMarker");
 
 if (localStorageAllName === null) {addNameLocalStorage();}
+
+autocomplete();
 
 if (currentMarker) {
     let currentStopValues = localStorage.getItem("currentMarker").split(",");
