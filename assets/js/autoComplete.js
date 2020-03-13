@@ -1,12 +1,16 @@
 import $ from "jquery";
 import {addCurrentStopLocalStorage,addNameLocalStorage} from "./webStorage";
 
-let allNameLocalStorage = localStorage.getItem("allName");
+let stopListTab = [];
 
-if (!allNameLocalStorage) {
+if (localStorage.getItem("allName") == null) {
     addNameLocalStorage();
-} 
-let stopListTab = localStorage.getItem("allName").split(",");  
+    stopListTab = localStorage.getItem("allName").split(","); 
+}else{
+    let allNameLocalStorage = localStorage.getItem("allName");
+    stopListTab = allNameLocalStorage.split(","); 
+}
+ 
 $(document).ready(function () {
 
     let listdata = $("#search-stop-search");
