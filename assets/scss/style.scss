@@ -64,10 +64,14 @@ $color-client-bleu: #065070;
       border-radius: 10px;
       font-size: 1rem;
     }
+  }
 
-    #show-allmarkers {
-      background-color: #6289a2;
-    }
+  #show-allmarkers {
+    background-color: #6289a2;
+    display: block;
+    margin: 20px auto auto;
+    border-radius: 10px;
+    font-size: 1rem;
   }
 
 }
