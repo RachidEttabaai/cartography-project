@@ -3,7 +3,7 @@ import {addCurrentStopLocalStorage,addNameLocalStorage} from "./webStorage";
 
 let stopListTab = [];
 
-if (localStorage.getItem("allName") == null) {
+if (localStorage.getItem("allName") === null){
     addNameLocalStorage();
     stopListTab = localStorage.getItem("allName").split(","); 
 }else{

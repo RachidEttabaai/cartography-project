@@ -8,7 +8,7 @@ let map = initMap();
 let localStorageAllName = localStorage.getItem('allName');
 let currentMarker = localStorage.getItem("currentMarker");
 
-if (localStorageAllName == null) {addNameLocalStorage();}
+if (localStorageAllName === null) {addNameLocalStorage();}
 
 if (currentMarker) {
     let currentStopValues = localStorage.getItem("currentMarker").split(",");
