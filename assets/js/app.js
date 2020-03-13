@@ -23,7 +23,7 @@ if (currentMarker) {
 //////////////////////////////////////////////////SHOW ALL STOPS
 document.querySelector("#show-allmarkers").addEventListener("click",function(){
     showAllMarker(map);
-})
+});
 
 
 

@@ -22,7 +22,6 @@ async function getAllName() {
  * @returns {Array}
  */
 export async function getAllLinesForStop(name){
-
     let datas = await getLinesStop(name);
     let alldatas = [];
 
@@ -38,34 +37,21 @@ export async function getAllLinesForStop(name){
  * @returns {Array}
  */
 export async function addCurrentStopLocalStorage(name){
-    
-    let currentMarker = localStorage.getItem("currentMarker").split(",");
+    let dataOneName = await getDataStop(name);
+    let dataStop = [];
 
-    if(name == currentMarker[0]){
-
-        localStorage.setItem("currentMarker", currentMarker);
-        location.reload();
-
-    }else{
-
-        let dataOneName = await getDataStop(name);
-        let dataStop = [];
-
-        for (let feat of dataOneName.features) {
-            if(feat.properties.CODE.startsWith("SEM")){
-                let name = feat.properties.LIBELLE;
-                let latitude = feat.geometry.coordinates[1];
-                let longitude = feat.geometry.coordinates[0];
-                dataStop.push(name);
-                dataStop.push(latitude);
-                dataStop.push(longitude);
-            }
+    for (let feat of dataOneName.features) {
+        if(feat.properties.CODE.startsWith("SEM")){
+            let name = feat.properties.LIBELLE;
+            let latitude = feat.geometry.coordinates[1];
+            let longitude = feat.geometry.coordinates[0];
+            dataStop.push(name);
+            dataStop.push(latitude);
+            dataStop.push(longitude);
         }
-        localStorage.setItem("currentMarker", dataStop);
-        location.reload();
     }
-
-    
+    localStorage.setItem("currentMarker", dataStop);
+    location.reload();
 }
 
 /**
