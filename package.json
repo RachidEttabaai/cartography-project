@@ -27,7 +27,7 @@
     "leaflet": "^1.6.0",
     "sass": "^1.26.2",
     "style-loader": "^1.1.3",
-    "webpack-cli": "^3.3.11",
+    "webpack-cli": "^3.3.12",
     "what-input": "^5.2.7"
   },
   "devDependencies": {
